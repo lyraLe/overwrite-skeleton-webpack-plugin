@@ -1,85 +1,35 @@
-## 简介
-#### 修改自page-webpack-skeleton-plugin, 修改点为：
+### 简介
+修改自page-webpack-skeleton-plugin, 修改点为：
 - 升级html-webpack-plugin(V4.5.0)的钩子获取方法
 - 修改master上8989重复的问题（来自另一个branch）
 
-<p align="center">
-<img src="https://github.com/ElemeFE/page-skeleton-webpack-plugin/raw/master/docs/banner.jpg" alt="mark text" width="100%">
-</p>
+### 用法
+1. 安装
+`overwrite-skeleton-webpack-plugin`
+2. 引入(development mode)
+```
+const { SkeletonPlugin } = require('overwrite-skeleton-webpack-plugin');
+plugins: [
+  ...,
+  new SkeletonPlugin({
+    pathname: path.resolve(__dirname, '../shell'), // the path to store shell file
+    staticDir: path.join(__dirname, '../build'), // the same as the `output.path`
+    routes: ['/'] // Which routes you want to generate skeleton screen
+  })  
+]
 
-<div align="center">
-  <strong>:high_brightness:Automatically generate Skeleton Page:crescent_moon:</strong>
-</div>
+```
+如果是create-react-app，则`npm run eject`,然后在config/webpack.config.js的plugins中添加
+!isEnvProduction &&  new SkeletonPlugin({
+  pathname: path.resolve(__dirname, '../shell'), // the path to store shell file
+  staticDir: path.join(__dirname, '../build'), // the same as the `output.path`
+  routes: ['/'] // Which routes you want to generate skeleton screen
+}) 
 
-<div align="center">
-  A <code>Webpack</code> plugin helps you build better JavaScript application
-</div>
+3. 其他用法同page-skeleton-webpack-plugin
 
-<hr />
-
-<div align="center">
-  <!-- Version -->
-  <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin">
-    <img src="https://badge.fury.io/gh/elemefe%2Fpage-skeleton-webpack-plugin.svg" alt="website">
-  </a>
-  <!-- License -->
-  <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin">
-    <img src="https://img.shields.io/github/license/ElemeFE/page-skeleton-webpack-plugin.svg?style=flat-square" alt="LICENSE">
-  </a>
-  <!-- Build Status -->
-  <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin">
-    <img src="https://travis-ci.org/ElemeFE/page-skeleton-webpack-plugin.svg?branch=master" alt="build">
-  </a>
-  <!-- Downloads weekly -->
-  <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin">
-    <img src="https://img.shields.io/npm/dw/page-skeleton-webpack-plugin.svg?style=flat-square" alt="download">
-  </a>
-</div>
-
-<div align="center">
- <a href="https://nodei.co/npm/page-skeleton-webpack-plugin/"><img src="https://nodei.co/npm/page-skeleton-webpack-plugin.png?downloads=true&downloadRank=true&stars=true"></a>
-</div>
-
-<div align="center">
-
-  <h3>
-    <a href="https://zhuanlan.zhihu.com/p/34702561">
-      Blog
-    </a>
-   <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin/blob/master/docs/i18n/zh_cn.md">
-      中文
-    </a>
-   <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#features">
-      Features
-    </a>
-   <span> | </span>
-​    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#examples">
-      Examples
-    </a>
-​    <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#installation">
-      Install
-    </a>
-    <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#basic-use">
-      Basic Use
-    </a>
-    <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#documents">
-      Documents
-    </a>
-    <span> | </span>
-    <a href="https://github.com/ElemeFE/page-skeleton-webpack-plugin#contribution">
-      Contribution
-    </a>
-  </h3>
-</div>
-
-<br />
-
-![](https://github.com/ElemeFE/page-skeleton-webpack-plugin/raw/master/docs/workflow.gif)
+---
+*以下为page-skeleton-webpack-plugin的特点*
 
 ### Features
 
